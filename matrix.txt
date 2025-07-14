@@ -1,0 +1,81 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a[10][10], b[10][10], c[10][10];
+    int n;
+
+    cout << "Enter size of square matrices (max 10): ";
+    cin >> n;
+
+    cout << "Enter elements of first matrix:\n";
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            cin >> a[i][j];
+
+    cout << "Enter elements of second matrix:\n";
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            cin >> b[i][j];
+
+    int choice;
+    do {
+        cout << "\nMenu:\n";
+        cout << "1. Addition\n";
+        cout << "2. Subtraction\n";
+        cout << "3. Multiplication\n";
+        cout << "4. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            cout << "Result of Addition:\n";
+            for (int i = 0; i < n; i++) {
+                cout << "[ ";
+                for (int j = 0; j < n; j++) {
+                    c[i][j] = a[i][j] + b[i][j];
+                    cout << c[i][j] << " ";
+                }
+                cout << "]\n";
+            }
+        }
+
+        else if (choice == 2) {
+            cout << "Result of Subtraction:\n";
+            for (int i = 0; i < n; i++) {
+                cout << "[ ";
+                for (int j = 0; j < n; j++) {
+                    c[i][j] = a[i][j] - b[i][j];
+                    cout << c[i][j] << " ";
+                }
+                cout << "]\n";
+            }
+        }
+
+        else if (choice == 3) {
+            cout << "Result of Multiplication:\n";
+            for (int i = 0; i < n; i++) {
+                cout << "[ ";
+                for (int j = 0; j < n; j++) {
+                    c[i][j] = 0;
+                    for (int k = 0; k < n; k++) {
+                        c[i][j] += a[i][k] * b[k][j];
+                    }
+                    cout << c[i][j] << " ";
+                }
+                cout << "]\n";
+            }
+        }
+
+        else if (choice == 4) {
+            cout << "Thank you for using the program.\n";
+        }
+
+        else {
+            cout << "Invalid choice. Try again.\n";
+        }
+
+    } while (choice != 4);
+
+    return 0;
+}
